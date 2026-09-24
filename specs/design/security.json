@@ -1,0 +1,67 @@
+{
+  "version": 3,
+  "permissions": [
+    {
+      "resource": "services",
+      "component": "booking-api",
+      "description": "The business's bookable services",
+      "actions": [
+        { "handle": "read", "description": "Browse active services" },
+        { "handle": "manage", "description": "Create, update and deactivate services" }
+      ]
+    },
+    {
+      "resource": "availability",
+      "component": "booking-api",
+      "description": "Staff working hours and blocked-out time",
+      "actions": [
+        { "handle": "read", "description": "See a staff member's availability and time off" },
+        { "handle": "manage", "description": "Set working hours and time off" }
+      ]
+    },
+    {
+      "resource": "slots",
+      "component": "booking-api",
+      "description": "Computed open time slots for a service",
+      "actions": [
+        { "handle": "read", "description": "Compute open slots for a service" }
+      ]
+    },
+    {
+      "resource": "bookings",
+      "component": "booking-api",
+      "description": "Appointment bookings",
+      "actions": [
+        { "handle": "read", "description": "The caller's own bookings" },
+        { "handle": "read-all", "description": "Every booking" },
+        { "handle": "create", "description": "Book an available slot" },
+        { "handle": "cancel", "description": "Cancel or reschedule the caller's own booking" },
+        { "handle": "manage", "description": "Cancel or reschedule any booking" }
+      ]
+    }
+  ],
+  "groups": [
+    { "name": "Customers", "description": "People who book appointments with the business" }
+  ],
+  "roles": [
+    {
+      "name": "Customer",
+      "description": "Browses services and slots, and manages their own bookings.",
+      "stories": [1, 2, 3, 4, 5, 6],
+      "grants": ["services:read", "slots:read", "bookings:read", "bookings:create", "bookings:cancel"],
+      "enrolment": "self-service"
+    },
+    {
+      "name": "Staff",
+      "description": "Defines services and availability, and manages the business's whole calendar.",
+      "stories": [7, 8, 9, 10, 11, 12],
+      "grants": ["services:read", "services:manage", "availability:read", "availability:manage", "slots:read", "bookings:read-all", "bookings:manage"],
+      "assignTo": ["FrontDeskStaff"]
+    }
+  ],
+  "testUsers": [
+    { "username": "test-customer", "roles": ["Customer"] },
+    { "username": "test-customer-2", "roles": ["Customer"] },
+    { "username": "test-staff", "roles": ["Staff"] }
+  ]
+}

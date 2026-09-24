@@ -1,0 +1,15 @@
+title Booking Agent
+
+component booking-webapp as "Booking Webapp" web-application
+component booking-api as "Booking API" service
+component booking-db as "Booking Database" database
+
+east user-auth as "Thunder Auth" identity-server
+
+north -> booking-webapp
+north -> booking-api
+
+booking-webapp -> booking-api
+booking-webapp -> user-auth
+booking-api -> user-auth
+booking-api -> booking-db

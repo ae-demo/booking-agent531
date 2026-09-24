@@ -1,0 +1,17 @@
+{
+  "name": "booking-webapp",
+  "type": "web-application",
+  "version": "0.1.0",
+  "language": "TypeScript",
+  "buildpack": "docker",
+  "appPath": "booking-webapp",
+  "entrypoint": "deployment/web-application",
+  "exposure": "internet",
+  "dependencies": [
+    { "kind": "component", "name": "booking-api", "description": "Browses services and availability, and creates/manages bookings." },
+    { "kind": "platform-resource", "name": "user-auth", "resourceType": "thunder-app" }
+  ],
+  "description": "The single-page app both Customers and Staff sign into. Customers browse services, find open slots, and manage their own bookings; Staff define services, set availability and time off, and manage the business's whole calendar. Holds no business logic of its own — every read and write goes through booking-api.",
+  "stories": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "skillsPinned": ["wireframes", "react-webapp", "oxygen-ui-design-system", "thunder-authentication"]
+}
