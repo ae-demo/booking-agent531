@@ -48,13 +48,13 @@ payment happens outside this system, e.g. in person.
 cancellation notices are sent by this system.
 - **Scope of the business**: the system serves a single business with a single
 location and a single shared calendar; every Staff member manages the same
-business, not their own separate one. *assumed*
+business, not their own separate one.
 - **Staff role**: Staff is one combined role — every signed-in staff member can
 define services, set availability, and manage any booking; there is no
-separate, more restricted "front-desk" role. *assumed*
+separate, more restricted "front-desk" role.
 - **Cancellation/reschedule window**: a Customer may cancel or reschedule their
 own booking at any time before it starts — there is no minimum notice cutoff
-enforced by the system. *assumed*
+enforced by the system.
 
 ## Out of Scope
 
